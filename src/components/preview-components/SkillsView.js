@@ -2,7 +2,7 @@ import React from 'react';
 
 //*cicles trough an array
 export default function EducationView(props) {
-	const { skillsArr } = props.formData;
+	const { skillsArr, printMode } = props.formData;
 	const { deleteBlock } = props;
 
 	const skillsMapped = skillsArr.map((elem) => (
@@ -10,7 +10,7 @@ export default function EducationView(props) {
 			<li>{elem.name}</li>
 			<button
 				onClick={() => deleteBlock(elem.id, 'skillsArr')}
-				className="del-skill"
+				className={printMode ? 'btn btn-skill hid' : 'btn btn-skill'}
 			>
 				x
 			</button>

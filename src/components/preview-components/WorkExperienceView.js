@@ -2,7 +2,7 @@ import React from 'react';
 
 //*cicles trough an array
 export default function WorkExperience(props) {
-	const { experiencesArr } = props.formData;
+	const { experiencesArr, printMode } = props.formData;
 	const { deleteBlock } = props;
 
 	const expMapped = experiencesArr.map((elem) => (
@@ -21,7 +21,7 @@ export default function WorkExperience(props) {
 				</div>
 				<button
 					onClick={() => deleteBlock(elem.id, 'experiencesArr')}
-					className="del-exp"
+					className={printMode ? 'btn hid' : 'btn'}
 				>
 					x
 				</button>

@@ -2,6 +2,7 @@ import React from 'react';
 import uniqid from 'uniqid';
 import Form from './components/Form';
 import Preview from './components/Preview';
+import Header from './components/Header';
 
 class App extends React.Component {
 	constructor(props) {
@@ -32,6 +33,7 @@ class App extends React.Component {
 			descriptionEd: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 			skill: 'MS Office',
 			skillsArr: [],
+			printMode: false,
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -39,6 +41,7 @@ class App extends React.Component {
 		this.addEducation = this.addEducation.bind(this);
 		this.deleteBlock = this.deleteBlock.bind(this);
 		this.addSkill = this.addSkill.bind(this);
+		this.changeMode = this.changeMode.bind(this);
 	}
 
 	handleChange(e) {
@@ -101,9 +104,25 @@ class App extends React.Component {
 		}));
 	}
 
+	changeMode() {
+		this.setState(
+			(prevState) => ({
+				printMode: !prevState.printMode,
+			}),
+			() => this.hideBtns()
+		);
+	}
+
+	hideBtns() {
+		const btns = document.querySelectorAll('.btn');
+		if (this.state.printMode) btns.forEach((elem) => elem.classList.add('hid'));
+		else btns.forEach((elem) => elem.classList.remove('hid'));
+	}
+
 	render() {
 		return (
 			<div className="App">
+				<Header changeMode={this.changeMode} printMode={this.state.printMode} />
 				<Form
 					formData={this.state}
 					handleChange={this.handleChange}
