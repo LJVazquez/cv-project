@@ -42,14 +42,25 @@
 }
 
 .w-exp-container,
-.edu-container {
+.edu-container,
+.skills-container {
 	margin-top: 0.5em;
 }
 
 .w-exp,
-.edu {
+.edu,
+.skills-list {
 	display: flex;
 	justify-content: space-between;
+}
+
+.skills-list {
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.skill {
+	display: inherit;
 }
 
 .company {
@@ -62,10 +73,17 @@
 }
 
 .del-exp,
-.del-edu {
+.del-edu,
+.del-skill {
 	border: 0;
 	border-bottom: 1px solid white;
 	padding: 5px;
 	outline: none;
 	background-color: gray;
+}
+
+.del-skill {
+	border-bottom: none;
+	margin: 0 1em;
+	padding: 0 5px;
 }

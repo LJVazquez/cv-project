@@ -3,6 +3,7 @@ import MainDataForm from './form-components/MainDataForm';
 import PersonalDataForm from './form-components/PersonalDataForm';
 import WorkExperienceForm from './form-components/WorkExperienceForm';
 import EducationForm from './form-components/EducationForm';
+import SkillsForm from './form-components/SkillsForm';
 
 export default function Form(props) {
 	return (
@@ -24,6 +25,11 @@ export default function Form(props) {
 				formData={props.formData}
 				handleChange={props.handleChange}
 				addEducation={props.addEducation}
+			/>
+			<SkillsForm
+				formData={props.formData}
+				handleChange={props.handleChange}
+				addSkill={props.addSkill}
 			/>
 		</form>
 	);

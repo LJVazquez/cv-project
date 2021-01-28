@@ -30,12 +30,15 @@ class App extends React.Component {
 			toEd: '2015',
 			degree: 'Bio engineer',
 			descriptionEd: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+			skill: 'MS Office',
+			skillsArr: [],
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.addWorkExperience = this.addWorkExperience.bind(this);
 		this.addEducation = this.addEducation.bind(this);
 		this.deleteBlock = this.deleteBlock.bind(this);
+		this.addSkill = this.addSkill.bind(this);
 	}
 
 	handleChange(e) {
@@ -84,6 +87,14 @@ class App extends React.Component {
 		});
 	}
 
+	addSkill(e) {
+		e.preventDefault();
+		const newSkill = { id: uniqid(), name: this.state.skill };
+		this.setState((prevState) => ({
+			skillsArr: [...prevState.skillsArr, newSkill],
+		}));
+	}
+
 	deleteBlock(id, type) {
 		this.setState((prevState) => ({
 			[type]: prevState[type].filter((elem) => !(elem.id === id)),
@@ -98,6 +109,7 @@ class App extends React.Component {
 					handleChange={this.handleChange}
 					addWorkExperience={this.addWorkExperience}
 					addEducation={this.addEducation}
+					addSkill={this.addSkill}
 				/>
 				<Preview formData={this.state} deleteBlock={this.deleteBlock} />
 			</div>

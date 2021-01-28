@@ -6,7 +6,7 @@ export default function WorkExperience(props) {
 	const { deleteBlock } = props;
 
 	const expMapped = experiencesArr.map((elem) => (
-		<div className="w-exp-container" key={elem.id}>
+		<div key={elem.id}>
 			<div className="w-exp">
 				<div className="company">
 					<h4>{elem.company}</h4>
