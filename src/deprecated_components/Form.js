@@ -12,7 +12,7 @@ export default function Form(props) {
 				formData={props.formData}
 				handleChange={props.handleChange}
 			/>
-			<PersonalDataForm
+			{/* <PersonalDataForm
 				formData={props.formData}
 				handleChange={props.handleChange}
 			/>
@@ -30,7 +30,7 @@ export default function Form(props) {
 				formData={props.formData}
 				handleChange={props.handleChange}
 				addSkill={props.addSkill}
-			/>
+			/> */}
 		</form>
 	);
 }

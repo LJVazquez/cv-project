@@ -1,139 +1,65 @@
-import React from 'react';
-import uniqid from 'uniqid';
-import Form from './components/Form';
-import Preview from './components/Preview';
+import React, { useState } from 'react';
 import Header from './components/Header';
+import Work from './components/Work';
+// import uniqid from 'uniqid';
 
-class App extends React.Component {
-	constructor(props) {
-		super(props);
+function App() {
+	const [firstName, setFirstName] = useState('First Name');
+	const [lastName, setLastName] = useState('Last Name');
+	const [career, setCareer] = useState('Current role');
+	const [adress1, setAdress1] = useState('Adress 1');
+	const [adress2, setAdress2] = useState('Adress 2');
+	const [phone, setPhone] = useState('Phone');
+	const [email, setEmail] = useState('Email');
+	const [company, setCompany] = useState('');
+	const [cityExp, setCityExp] = useState('');
+	const [fromExp, setFromExp] = useState('');
+	const [toExp, setToExp] = useState('');
+	const [role, setRole] = useState('');
+	const [descriptionExp, setDescriptionExp] = useState('');
+	// const [educationArr, setEducationArr] = useState([]);
+	// const [establishment, setEstablishment] = useState('');
+	// const [cityEd, setCityEd] = useState('');
+	// const [fromEd, setFromEd] = useState('');
+	// const [toEd, setToEd] = useState('');
+	// const [fromExp, setFromExp] = useState('');
+	// const [toExp, setToExp] = useState('');
+	// const [degree, setDegree] = useState('');
+	// const [descriptionEd, setDescriptionEd] = useState('');
+	// const [descriptionExp, setDescriptionExp] = useState('');
+	// const [skill, setSkill] = useState('');
+	// const [skillsArr, setSkillsArr] = useState([]);
+	// const [printMode, setPrintMode] = useState(false);
 
-		this.state = {
-			firstName: 'John',
-			lastName: 'Doe',
-			career: 'Bio Engineer',
-			adress1: '123 fake street',
-			adress2: 'Colorado, US',
-			phone: '555-1234',
-			email: 'goat@goat.com',
-			experiencesArr: [],
-			company: 'Google',
-			cityExp: 'Toronto',
-			fromExp: '2010',
-			toExp: '2020',
-			role: 'Dev Ops',
-			descriptionExp:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, distinctio. ',
-			educationArr: [],
-			establishment: 'Harvard',
-			cityEd: 'California',
-			fromEd: '2012',
-			toEd: '2015',
-			degree: 'Bio engineer',
-			descriptionEd: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-			skill: 'MS Office',
-			skillsArr: [],
-			printMode: false,
-		};
-
-		this.handleChange = this.handleChange.bind(this);
-		this.addWorkExperience = this.addWorkExperience.bind(this);
-		this.addEducation = this.addEducation.bind(this);
-		this.deleteBlock = this.deleteBlock.bind(this);
-		this.addSkill = this.addSkill.bind(this);
-		this.changeMode = this.changeMode.bind(this);
-	}
-
-	handleChange(e) {
-		const { name, value } = e.target;
-
-		this.setState({
-			[name]: value,
-		});
-	}
-
-	addWorkExperience(e) {
-		e.preventDefault();
-
-		const newExp = {
-			id: uniqid(),
-			company: this.state.company,
-			cityExp: this.state.cityExp,
-			fromExp: this.state.fromExp,
-			toExp: this.state.toExp,
-			role: this.state.role,
-			descriptionExp: this.state.descriptionExp,
-		};
-		this.setState((prevState) => {
-			return {
-				experiencesArr: [...prevState.experiencesArr, newExp],
-			};
-		});
-	}
-
-	addEducation(e) {
-		e.preventDefault();
-
-		const newEd = {
-			id: uniqid(),
-			establishment: this.state.establishment,
-			cityEd: this.state.cityEd,
-			fromEd: this.state.fromEd,
-			toEd: this.state.toEd,
-			degree: this.state.degree,
-			descriptionEd: this.state.descriptionEd,
-		};
-		this.setState((prevState) => {
-			return {
-				educationArr: [...prevState.educationArr, newEd],
-			};
-		});
-	}
-
-	addSkill(e) {
-		e.preventDefault();
-		const newSkill = { id: uniqid(), name: this.state.skill };
-		this.setState((prevState) => ({
-			skillsArr: [...prevState.skillsArr, newSkill],
-		}));
-	}
-
-	deleteBlock(id, type) {
-		this.setState((prevState) => ({
-			[type]: prevState[type].filter((elem) => !(elem.id === id)),
-		}));
-	}
-
-	changeMode() {
-		this.setState(
-			(prevState) => ({
-				printMode: !prevState.printMode,
-			}),
-			() => this.hideBtns()
-		);
-	}
-
-	hideBtns() {
-		const btns = document.querySelectorAll('.btn');
-		if (this.state.printMode) btns.forEach((elem) => elem.classList.add('hid'));
-		else btns.forEach((elem) => elem.classList.remove('hid'));
-	}
-
-	render() {
-		return (
-			<div className="App">
-				<Header changeMode={this.changeMode} printMode={this.state.printMode} />
-				<Form
-					formData={this.state}
-					handleChange={this.handleChange}
-					addWorkExperience={this.addWorkExperience}
-					addEducation={this.addEducation}
-					addSkill={this.addSkill}
+	return (
+		<div className="App">
+			<form className="main-container">
+				<Header
+					values={[firstName, lastName, career, adress1, adress2, phone, email]}
+					seters={[
+						setFirstName,
+						setLastName,
+						setCareer,
+						setAdress1,
+						setAdress2,
+						setPhone,
+						setEmail,
+					]}
 				/>
-				<Preview formData={this.state} deleteBlock={this.deleteBlock} />
-			</div>
-		);
-	}
+				<Work
+					values={[company, cityExp, role, fromExp, toExp, descriptionExp]}
+					setters={[
+						setCompany,
+						setCityExp,
+						setRole,
+						setFromExp,
+						setToExp,
+						setDescriptionExp,
+					]}
+				/>
+			</form>
+		</div>
+	);
 }
 
 export default App;
