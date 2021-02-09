@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
-import Work from './components/Work';
+import HistoryList from './components/HistoryList';
 // import uniqid from 'uniqid';
 
 function App() {
@@ -46,7 +46,9 @@ function App() {
 						setEmail,
 					]}
 				/>
-				<Work
+				<hr />
+				<HistoryList
+					title="Work Experience"
 					values={[company, cityExp, role, fromExp, toExp, descriptionExp]}
 					setters={[
 						setCompany,
@@ -57,6 +59,7 @@ function App() {
 						setDescriptionExp,
 					]}
 				/>
+				<hr />
 			</form>
 		</div>
 	);

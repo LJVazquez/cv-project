@@ -3,7 +3,7 @@ import LabeledTextInput from './basic-components/LabeledTextInput';
 import NumberInput from './basic-components/NumberImput';
 import TextAreaInput from './basic-components/TextAreaInput';
 
-export default function WorkExperienceForm(props) {
+export default function HistoryListBlocks(props) {
 	const [
 		establishment,
 		cityEd,

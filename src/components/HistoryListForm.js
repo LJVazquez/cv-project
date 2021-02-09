@@ -3,51 +3,51 @@ import LabeledTextInput from './basic-components/LabeledTextInput';
 import NumberInput from './basic-components/NumberImput';
 import TextAreaInput from './basic-components/TextAreaInput';
 
-export default function WorkExperienceForm(props) {
-	const [company, cityExp, role, fromExp, toExp, descriptionExp] = props.values;
-	const [addNewExp, setShowForm] = props.functions;
+export default function HistoryListForm(props) {
+	const [main, city, role, from, to, description] = props.values;
+	const [addNewBlock, setShowForm] = props.functions;
 
 	const [
-		setCompany,
-		setCityExp,
+		setMain,
+		setCity,
 		setRole,
-		setFromExp,
-		setToExp,
-		setDescriptionExp,
+		setFrom,
+		setTo,
+		setDescription,
 	] = props.setters;
 
 	function handleConfirm(e) {
 		e.preventDefault();
-		addNewExp();
+		addNewBlock();
 		resetFields();
 		setShowForm(false);
 	}
 
 	function resetFields() {
-		setCompany('');
-		setCityExp('');
+		setMain('');
+		setCity('');
 		setRole('');
-		setFromExp('');
-		setToExp('');
-		setDescriptionExp('');
+		setFrom('');
+		setTo('');
+		setDescription('');
 	}
 
 	return (
-		<div className="work-experience-container">
-			<div className="work-experience-fields">
+		<div className="history-list-container">
+			<div className="history-list-fields">
 				<LabeledTextInput
 					name="Company"
 					class="input"
-					value={company}
+					value={main}
 					label="Establishment name"
-					setter={setCompany}
+					setter={setMain}
 				/>
 				<LabeledTextInput
-					name="cityExp"
+					name="city"
 					class="input"
-					value={cityExp}
+					value={city}
 					label="City"
-					setter={setCityExp}
+					setter={setCity}
 				/>
 				<LabeledTextInput
 					name="role"
@@ -58,26 +58,26 @@ export default function WorkExperienceForm(props) {
 				/>
 				<div className="double-input-container">
 					<NumberInput
-						name="fromExp"
+						name="from"
 						class="input"
-						value={fromExp}
+						value={from}
 						label="From:"
-						setter={setFromExp}
+						setter={setFrom}
 					/>
 					<NumberInput
-						name="toExp"
+						name="to"
 						class="input"
-						value={toExp}
+						value={to}
 						label="To:"
-						setter={setToExp}
+						setter={setTo}
 					/>
 				</div>
 				<TextAreaInput
-					name="descriptionExp"
-					value={descriptionExp}
+					name="description"
+					value={description}
 					class="input"
 					label="Further Descriptions or Achievements:"
-					setter={setDescriptionExp}
+					setter={setDescription}
 				/>
 			</div>
 			<div className="input-container">

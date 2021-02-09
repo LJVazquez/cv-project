@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function WorkExperiences(props) {
-	const { experiencesArr } = props;
+export default function HistoryListDisplay(props) {
+	const { blocksArr, removeBlockByID } = props;
 	const printMode = false;
 
-	const mappedExperiences = experiencesArr.map((elem) => (
+	const mappedBlocks = blocksArr.map((elem) => (
 		<div key={elem.id}>
 			<div className="w-exp">
 				<div className="company">
@@ -18,9 +18,14 @@ export default function WorkExperiences(props) {
 					<h4>{elem.role}</h4>
 					<p>{elem.descriptionExp}</p>
 				</div>
-				<button className={printMode ? 'btn hid' : 'btn'}>x</button>
+				<button
+					className={printMode ? 'btn hid' : 'btn'}
+					onClick={(e) => removeBlockByID(elem.id, e)}
+				>
+					x
+				</button>
 			</div>
 		</div>
 	));
-	return <div className="work-experiences">{mappedExperiences}</div>;
+	return <div className="HistoryListDisplay">{mappedBlocks}</div>;
 }

@@ -13,7 +13,18 @@ h3 {
 }
 
 button {
+	padding: 0.5em;
 	margin-right: 1em;
+	border: none;
+}
+
+.open-form {
+	margin: 0.2em 1em;
+}
+
+button:hover {
+	transition: all 200ms;
+	background-color: gray;
 }
 
 .input-container,
@@ -58,7 +69,7 @@ label {
 	flex-basis: 70%;
 }
 
-.work-experience-fields {
+.history-list-fields {
 	flex-wrap: wrap;
 }
 
