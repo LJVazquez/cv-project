@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import LabeledTextInput from './basic-components/LabeledTextInput';
 import NumberInput from './basic-components/NumberImput';
 import TextAreaInput from './basic-components/TextAreaInput';
@@ -36,21 +36,18 @@ export default function HistoryListForm(props) {
 		<div className="history-list-container">
 			<div className="history-list-fields">
 				<LabeledTextInput
-					name="Company"
 					class="input"
 					value={main}
 					label="Establishment name"
 					setter={setMain}
 				/>
 				<LabeledTextInput
-					name="city"
 					class="input"
 					value={city}
 					label="City"
 					setter={setCity}
 				/>
 				<LabeledTextInput
-					name="role"
 					class="input"
 					value={role}
 					label="Role"
@@ -58,24 +55,16 @@ export default function HistoryListForm(props) {
 				/>
 				<div className="double-input-container">
 					<NumberInput
-						name="from"
 						class="input"
 						value={from}
 						label="From:"
 						setter={setFrom}
 					/>
-					<NumberInput
-						name="to"
-						class="input"
-						value={to}
-						label="To:"
-						setter={setTo}
-					/>
+					<NumberInput class="input" value={to} label="To:" setter={setTo} />
 				</div>
 				<TextAreaInput
-					name="description"
-					value={description}
 					class="input"
+					value={description}
 					label="Further Descriptions or Achievements:"
 					setter={setDescription}
 				/>

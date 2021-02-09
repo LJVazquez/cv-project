@@ -7,7 +7,6 @@ export default function LabeledTextInput(props) {
 			<input
 				type="text"
 				value={props.value}
-				name={props.name}
 				className={props.class}
 				onChange={(e) => props.setter(e.target.value)}
 				onClick={(e) => e.target.setSelectionRange(0, e.target.value.length)}

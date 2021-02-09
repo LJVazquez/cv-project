@@ -7,7 +7,6 @@ export default function TextInput(props) {
 			<textarea
 				style={{ resize: 'none' }}
 				value={props.value}
-				name={props.name}
 				className={props.class}
 				onChange={(e) => props.setter(e.target.value)}
 				placeholder="Short and concise."

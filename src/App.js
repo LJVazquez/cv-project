@@ -17,16 +17,12 @@ function App() {
 	const [toExp, setToExp] = useState('');
 	const [role, setRole] = useState('');
 	const [descriptionExp, setDescriptionExp] = useState('');
-	// const [educationArr, setEducationArr] = useState([]);
-	// const [establishment, setEstablishment] = useState('');
-	// const [cityEd, setCityEd] = useState('');
-	// const [fromEd, setFromEd] = useState('');
-	// const [toEd, setToEd] = useState('');
-	// const [fromExp, setFromExp] = useState('');
-	// const [toExp, setToExp] = useState('');
-	// const [degree, setDegree] = useState('');
-	// const [descriptionEd, setDescriptionEd] = useState('');
-	// const [descriptionExp, setDescriptionExp] = useState('');
+	const [establishment, setEstablishment] = useState('');
+	const [cityEd, setCityEd] = useState('');
+	const [fromEd, setFromEd] = useState('');
+	const [toEd, setToEd] = useState('');
+	const [degree, setDegree] = useState('');
+	const [descriptionEd, setDescriptionEd] = useState('');
 	// const [skill, setSkill] = useState('');
 	// const [skillsArr, setSkillsArr] = useState([]);
 	// const [printMode, setPrintMode] = useState(false);
@@ -57,6 +53,19 @@ function App() {
 						setFromExp,
 						setToExp,
 						setDescriptionExp,
+					]}
+				/>
+				<hr />
+				<HistoryList
+					title="Education"
+					values={[establishment, cityEd, degree, fromEd, toEd, descriptionEd]}
+					setters={[
+						setEstablishment,
+						setCityEd,
+						setDegree,
+						setFromEd,
+						setToEd,
+						setDescriptionEd,
 					]}
 				/>
 				<hr />

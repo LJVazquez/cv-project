@@ -7,16 +7,16 @@ export default function HistoryListDisplay(props) {
 	const mappedBlocks = blocksArr.map((elem) => (
 		<div key={elem.id}>
 			<div className="w-exp">
-				<div className="company">
-					<h4>{elem.company}</h4>
-					<p>{elem.cityExp}</p>
+				<div className="main">
+					<h4>{elem.main}</h4>
+					<p>{elem.city}</p>
 					<p>
-						{elem.fromExp} - {elem.toExp}
+						{elem.from} - {elem.to}
 					</p>
 				</div>
 				<div className="role">
 					<h4>{elem.role}</h4>
-					<p>{elem.descriptionExp}</p>
+					<p>{elem.description}</p>
 				</div>
 				<button
 					className={printMode ? 'btn hid' : 'btn'}

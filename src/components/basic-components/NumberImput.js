@@ -6,8 +6,9 @@ export default function TextInput(props) {
 			<label>{props.label}</label>
 			<input
 				type="number"
+				maxLength="4"
+				minLength="4"
 				value={props.value}
-				name={props.name}
 				className={props.class}
 				onChange={(e) => props.setter(e.target.value)}
 			/>

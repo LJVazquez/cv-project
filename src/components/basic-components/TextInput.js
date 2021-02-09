@@ -5,7 +5,6 @@ export default function TextInput(props) {
 		<input
 			type="text"
 			value={props.value}
-			name={props.name}
 			className={props.class}
 			placeholder={props.placeholder}
 			onChange={(e) => props.setter(e.target.value)}
